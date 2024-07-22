@@ -2,10 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:gap/gap.dart';
-import 'package:property_app/gen/assets.gen.dart';
-import 'package:property_app/gen/fonts.gen.dart';
-import 'package:property_app/utils/const/color.dart';
-import 'package:property_app/utils/text_widget.dart';
+
+import '../../../../../gen/assets.gen.dart';
+import '../../../../../gen/fonts.gen.dart';
+import '../../../../../utils/const/color.dart';
+import '../../../../../utils/text_widget.dart';
 
 class HeaderSection extends StatelessWidget {
   const HeaderSection({super.key});

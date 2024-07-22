@@ -463,7 +463,7 @@ class ContentBottomSheetWidget extends StatelessWidget {
                         child: Stack(
                           children: [
                             Positioned(
-                              left: -100.w,
+                              left: -120.w,
                               top: -20.h,
                               child: ClipOval(
                                 child: Container(

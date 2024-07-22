@@ -4,16 +4,16 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:gap/gap.dart';
-import 'package:property_app/features/property/presentation/bloc/property_bloc.dart';
-import 'package:property_app/features/property/presentation/widgets/slider_loaded_property.dart';
-import 'package:property_app/gen/assets.gen.dart';
 
+import '../../../../../../gen/assets.gen.dart';
 import '../../../../../../utils/const/color.dart';
 import '../../../../../../utils/text_widget.dart';
+import '../../../bloc/property_bloc.dart';
 import '../../../widgets/container_transaction_menu_widget.dart';
+import '../../../widgets/slider_loaded_property.dart';
 
 class LoadedPropertyState extends StatelessWidget {
-  LoadedPropertyState(this.state, {super.key});
+  const LoadedPropertyState(this.state, {super.key});
 
   final PropertyLoaded state;
 

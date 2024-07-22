@@ -1,5 +1,6 @@
 import 'package:dartz/dartz.dart';
-import 'package:property_app/features/property/domain/entities/property.dart';
+
+import '../entities/property.dart';
 import '../repositories/property_repository.dart';
 
 class PropertyUseCase {

@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:property_app/core/bottom_navbar/widget/bottom_navbar_widget.dart';
-import 'package:property_app/features/property/presentation/screens/property_screen.dart';
-import 'package:property_app/route/route_name.dart';
+
+import '../core/bottom_navbar/widget/bottom_navbar_widget.dart';
+import '../features/property/presentation/screens/property_screen.dart';
+import 'route_name.dart';
 
 class AppRoute {
   static Route? onGenerateRoute(RouteSettings settings) {

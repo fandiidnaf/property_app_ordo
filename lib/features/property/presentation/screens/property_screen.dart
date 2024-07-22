@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:property_app/core/bottom_navbar/widget/bottom_navbar_widget.dart';
-import 'package:property_app/features/property/presentation/screens/section/ads_section.dart';
-import 'package:property_app/features/property/presentation/screens/section/body_section.dart';
-import 'package:property_app/features/property/presentation/screens/section/header_section.dart';
-import 'package:property_app/features/property/presentation/widgets/custom_gap.dart';
-import 'package:property_app/utils/const/color.dart';
+
+import '../../../../core/bottom_navbar/widget/bottom_navbar_widget.dart';
+import '../../../../utils/const/color.dart';
+import '../widgets/custom_gap.dart';
+import 'section/ads_section.dart';
+import 'section/body_section.dart';
+import 'section/header_section.dart';
 
 // class PropertyScreen extends StatefulWidget {
 //   const PropertyScreen({super.key});
@@ -59,24 +60,22 @@ class PropertyScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        backgroundColor: AppColors.LIGHT_GRAY,
-        body: Padding(
-          padding: const EdgeInsets.symmetric(vertical: 40).r,
-          child: const Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              HeaderSection(),
-              CustomGap(),
-              AdsSection(),
-              CustomGap(),
-              Expanded(child: BodySection())
-            ],
-          ),
+    return Scaffold(
+      backgroundColor: AppColors.LIGHT_GRAY,
+      body: Padding(
+        padding: const EdgeInsets.symmetric(vertical: 40).r,
+        child: const Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            HeaderSection(),
+            CustomGap(),
+            AdsSection(),
+            CustomGap(),
+            Expanded(child: BodySection())
+          ],
         ),
-        bottomNavigationBar: const BottomNavbarWidget(),
       ),
+      bottomNavigationBar: const BottomNavbarWidget(),
     );
   }
 }

@@ -1,8 +1,8 @@
 import 'package:equatable/equatable.dart';
-import 'package:property_app/features/property/domain/entities/property.dart';
-
-import '../../domain/use_cases/property_use_case.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+
+import '../../domain/entities/property.dart';
+import '../../domain/use_cases/property_use_case.dart';
 
 part 'property_event.dart';
 part 'property_state.dart';

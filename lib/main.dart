@@ -1,18 +1,23 @@
+import 'package:device_preview/device_preview.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:property_app/core/bottom_navbar/cubit/bottom_navbar_cubit.dart';
-import 'package:property_app/features/property/presentation/bloc/property_bloc.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:property_app/route/app_route.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import 'core/bottom_navbar/cubit/bottom_navbar_cubit.dart';
+import 'features/property/presentation/bloc/property_bloc.dart';
 import 'injection_container.dart';
+import 'route/app_route.dart';
 
 void main() async {
   WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
   FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
   Future.wait([ServiceLocator().setup()]).then((value) {
-    runApp(const MainApp());
+    runApp(DevicePreview(
+      enabled: !kReleaseMode,
+      builder: (context) => const MainApp(),
+    ));
   });
 }
 
@@ -31,13 +36,17 @@ class MainApp extends StatelessWidget {
         )
       ],
       child: ScreenUtilInit(
+        useInheritedMediaQuery: !kReleaseMode,
         designSize: const Size(428, 926),
         minTextAdapt: true,
         splitScreenMode: true,
         builder: (context, child) {
           FlutterNativeSplash.remove();
-
-          return const MaterialApp(
+          return MaterialApp(
+            // ignore: deprecated_member_use
+            useInheritedMediaQuery: !kReleaseMode,
+            locale: !kReleaseMode ? DevicePreview.locale(context) : null,
+            builder: !kReleaseMode ? DevicePreview.appBuilder : null,
             onGenerateRoute: AppRoute.onGenerateRoute,
             debugShowCheckedModeBanner: false,
           );

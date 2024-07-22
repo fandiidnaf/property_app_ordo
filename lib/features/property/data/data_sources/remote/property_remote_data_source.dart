@@ -1,8 +1,7 @@
 import 'dart:convert';
-
 import 'package:flutter/services.dart';
-import 'package:property_app/gen/assets.gen.dart';
 
+import '../../../../../gen/assets.gen.dart';
 import '../../models/property_model.dart';
 
 abstract class PropertyRemoteDataSource {

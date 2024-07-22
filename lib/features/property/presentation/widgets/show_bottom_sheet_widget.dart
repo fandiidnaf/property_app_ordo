@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:property_app/utils/const/color.dart';
+import '../../../../utils/const/color.dart';
 
 import '../../domain/entities/property.dart';
 import 'build_bottom_sheet_widget.dart';

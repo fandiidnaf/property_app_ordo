@@ -1,5 +1,6 @@
 import 'package:dartz/dartz.dart';
-import 'package:property_app/features/property/domain/entities/property.dart';
+
+import '../../domain/entities/property.dart';
 import '../../domain/repositories/property_repository.dart';
 import '../data_sources/remote/property_remote_data_source.dart';
 

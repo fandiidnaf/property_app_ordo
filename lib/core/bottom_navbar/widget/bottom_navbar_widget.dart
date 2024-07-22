@@ -3,10 +3,10 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:gap/gap.dart';
-import 'package:property_app/gen/assets.gen.dart';
-import 'package:property_app/route/route_name.dart';
-import 'package:property_app/utils/const/color.dart';
 
+import '../../../gen/assets.gen.dart';
+import '../../../route/route_name.dart';
+import '../../../utils/const/color.dart';
 import '../cubit/bottom_navbar_cubit.dart';
 
 class BottomNavbarWidget extends StatelessWidget {
