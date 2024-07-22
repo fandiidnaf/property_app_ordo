@@ -4,11 +4,13 @@ import 'package:property_app/core/bottom_navbar/cubit/bottom_navbar_cubit.dart';
 import 'package:property_app/features/property/presentation/bloc/property_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:property_app/route/app_route.dart';
+import 'package:flutter_native_splash/flutter_native_splash.dart';
 
 import 'injection_container.dart';
 
 void main() async {
-  WidgetsFlutterBinding.ensureInitialized();
+  WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
+  FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
   Future.wait([ServiceLocator().setup()]).then((value) {
     runApp(const MainApp());
   });
@@ -28,14 +30,18 @@ class MainApp extends StatelessWidget {
           create: (context) => BottomNavbarCubit(),
         )
       ],
-      child: const ScreenUtilInit(
-        designSize: Size(428, 926),
+      child: ScreenUtilInit(
+        designSize: const Size(428, 926),
         minTextAdapt: true,
         splitScreenMode: true,
-        child: MaterialApp(
-          onGenerateRoute: AppRoute.onGenerateRoute,
-          debugShowCheckedModeBanner: false,
-        ),
+        builder: (context, child) {
+          FlutterNativeSplash.remove();
+
+          return const MaterialApp(
+            onGenerateRoute: AppRoute.onGenerateRoute,
+            debugShowCheckedModeBanner: false,
+          );
+        },
       ),
     );
   }
