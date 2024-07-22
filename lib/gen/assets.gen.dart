@@ -9,6 +9,16 @@
 
 import 'package:flutter/widgets.dart';
 
+class $AssetsApiGen {
+  const $AssetsApiGen();
+
+  /// File path: assets/api/property.json
+  String get property => 'assets/api/property.json';
+
+  /// List of all assets
+  List<String> get values => [property];
+}
+
 class $AssetsIconsGen {
   const $AssetsIconsGen();
 
@@ -200,9 +210,15 @@ class $AssetsIconsNavbarGen {
   /// Directory path: assets/icons/navbar/active
   $AssetsIconsNavbarActiveGen get active => const $AssetsIconsNavbarActiveGen();
 
+  /// File path: assets/icons/navbar/indicator.svg
+  String get indicator => 'assets/icons/navbar/indicator.svg';
+
   /// Directory path: assets/icons/navbar/nonactive
   $AssetsIconsNavbarNonactiveGen get nonactive =>
       const $AssetsIconsNavbarNonactiveGen();
+
+  /// List of all assets
+  List<String> get values => [indicator];
 }
 
 class $AssetsIconsNavbarActiveGen {
@@ -252,6 +268,7 @@ class $AssetsIconsNavbarNonactiveGen {
 class Assets {
   Assets._();
 
+  static const $AssetsApiGen api = $AssetsApiGen();
   static const $AssetsIconsGen icons = $AssetsIconsGen();
   static const $AssetsImagesGen images = $AssetsImagesGen();
 }

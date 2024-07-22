@@ -1,3 +1,6 @@
+import 'package:equatable/equatable.dart';
+import 'package:property_app/features/property/domain/entities/property.dart';
+
 import '../../domain/use_cases/property_use_case.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -7,21 +10,32 @@ part 'property_state.dart';
 class PropertyBloc extends Bloc<PropertyEvent, PropertyState> {
   final PropertyUseCase propertyUseCase;
 
-  PropertyBloc({required this.propertyUseCase}) : super(const PropertyInitial()) {
-    on<PropertyEvent>(_property);
+  PropertyBloc({required this.propertyUseCase})
+      : super(const PropertyInitial()) {
+    on<LoadPropertyEvent>(_loadProperty);
+    on<RemovePropertyEvent>(_removeProperty);
+    on<ScrolledSliderPropertyEvent>(_scrolledSlider);
   }
 
-  Future<void> _property(
-    PropertyEvent event,
+  Future<void> _loadProperty(
+    LoadPropertyEvent event,
     Emitter<PropertyState> emit,
   ) async {
     emit(const PropertyLoading());
     final result = await propertyUseCase.call();
     result.fold(
       (exception) => emit(PropertyError(exception)),
-      (_) => emit(const PropertyLoaded()),
+      (property) => emit(PropertyLoaded(property)),
     );
   }
-}
 
-      
+  Future<void> _removeProperty(
+      RemovePropertyEvent event, Emitter<PropertyState> emit) async {
+    emit(const PropertyInitial());
+  }
+
+  Future<void> _scrolledSlider(
+      ScrolledSliderPropertyEvent event, Emitter<PropertyState> emit) async {
+    emit(PropertyLoaded(event.property, event.index));
+  }
+}

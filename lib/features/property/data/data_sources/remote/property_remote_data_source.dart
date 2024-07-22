@@ -1,20 +1,25 @@
-import 'package:dartz/dartz.dart';
+import 'dart:convert';
 
+import 'package:flutter/services.dart';
+import 'package:property_app/gen/assets.gen.dart';
+
+import '../../models/property_model.dart';
 
 abstract class PropertyRemoteDataSource {
-  Future<Unit> callApi();
+  Future<PropertyModel> getPropertysFromJson();
 }
 
 class PropertyRemoteDataSourceImpl implements PropertyRemoteDataSource {
   PropertyRemoteDataSourceImpl();
 
   @override
-  Future<Unit> callApi() async {
-    // send api request here
-    return Future.value(unit);
+  Future<PropertyModel> getPropertysFromJson() async {
+    // load the json file
+    final jsonString = await rootBundle.loadString(Assets.api.property);
+
+    // decode the json into list
+    final Map<String, dynamic> jsonList = json.decode(jsonString);
+
+    return PropertyModel.fromJson(jsonList);
   }
-
 }
-
-
-  
