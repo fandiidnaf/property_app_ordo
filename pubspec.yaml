@@ -7,13 +7,20 @@ environment:
   sdk: '>=3.4.1 <4.0.0'
 
 dependencies:
+  equatable: ^2.0.5
   flutter:
     sdk: flutter
+  flutter_bloc: ^8.1.6
+  flutter_screenutil: ^5.9.3
+  flutter_svg: ^2.0.10+1
+  gap: ^3.0.1
+  sqflite: ^2.3.3+1
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^3.0.0
+  clean_architecture_with_state_management: ^1.1.2
 
 flutter:
   uses-material-design: true
