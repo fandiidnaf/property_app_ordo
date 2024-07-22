@@ -1,4 +1,4 @@
-package com.example.property_app
+package com.fandi.ordo.property_app
 
 import io.flutter.embedding.android.FlutterActivity
 
