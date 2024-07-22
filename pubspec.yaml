@@ -24,3 +24,25 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+
+  assets:
+    - assets/icons/
+    - assets/icons/navbar/active/
+    - assets/icons/navbar/nonactive/
+    - assets/images/
+
+  fonts:
+    # Outfit
+    - family: Outfit
+      fonts:
+        - asset: assets/fonts/Outfit-Regular.ttf
+    
+    # Rubik
+    - family: Rubik
+      fonts:
+        - asset: assets/fonts/Rubik-Regular.ttf
+    
+    # Lexend
+    - family: Lexend
+      fonts:
+        - asset: assets/fonts/Lexend-Regular.ttf
